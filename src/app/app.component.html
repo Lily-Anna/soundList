@@ -1,31 +1,6 @@
 <router-outlet>
-
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> № </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Наименование звука </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="fileName">
-      <th mat-header-cell *matHeaderCellDef> Имя файла звукозаписи </th>
-      <td mat-cell *matCellDef="let element"> {{element.fileName}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="OnOpenPlayer(row)"><tr>
-
-  </table> 
-  <div class="player" *ngIf="visible" [hidden]="!visible">
-    <audio controls [src]="path+selectSound?.fileName">
-      <a [href]="path+selectSound?.fileName"> Download audio </a>
-    </audio>
-  </div>
+  <mat-toolbar color="primary">
+    <span>{{title}}</span>
+  </mat-toolbar>
+  <app-sound-list></app-sound-list>
 </router-outlet>
