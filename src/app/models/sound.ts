@@ -1,6 +1,5 @@
-interface Sound {
+export interface Sound {
   id: number;
   name: string;
   fileName: string;
-  path:string;
 }
