@@ -16,13 +16,21 @@ const sounds: Sound[] = [
   templateUrl: './sound-list.component.html',
   styleUrls: ['./sound-list.component.css']
 })
+
+//Компонент со списком аудиозаписей
 export class SoundListComponent {
+  //путь к папке хранения
   path = '/assets/sound/';
+  //название колонок
   displayedColumns: string[] = ['id', 'name', 'fileName'];
+  //данные для вывода информации
   dataSource = sounds;
+  //Видимость плеера
   visible: boolean = false;
+  //Выбранная аудиозапись
   selectSound?: Sound;
 
+  //Метод для управлением видимости аудиоплеера
   OnOpenPlayer(row: Sound) {
     if (this.selectSound != row) {
       this.visible = true;
